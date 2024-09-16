@@ -1,1 +1,1 @@
-# kubernetes_learning
+This repo is related to Kubernetes.
