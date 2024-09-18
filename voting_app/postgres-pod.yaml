@@ -11,7 +11,7 @@ spec:
       image: postgrese
       ports:
         - containerPort: 5432
-      env:
+      env:                       # Using Secret or any Vault is a better and safer approach than this
         - name: POSTGRES_USER
           value: "postgres"
         - name: "POSTGRES_PASSWORD"
