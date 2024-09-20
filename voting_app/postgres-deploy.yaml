@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-deploy
+spec:
+  selector:
+    matchLabels:
+      name: postgres-deploy
+      app: demo-voting-app
+  template:
+    replicas: 1
+    metadata:
+      name: postgres-pod
+      labels:
+        name: postgres-pod
+        app: demo-voting-app
+    spec:
+      containers:
+        - name: postgres
+          image: postgres
+          ports:
+            - containerPort: 5432
+          env:                       # Using Secret or any Vault is a better and safer approach than this
+            - name: POSTGRES_USER
+              value: "postgres"
+            - name: "POSTGRES_PASSWORD"
+              value: "postgres"
