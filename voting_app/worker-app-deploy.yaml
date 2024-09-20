@@ -6,12 +6,12 @@ metadata:
     name: worker-app-deploy
     app: demo-voting-app
 spec:
+  replicas: 1
   selector:
     matchLabels:
       name: worker-app-pod
       app: demo-voting-app
   template:
-    replicas: 1
     metadata:
       name: worker-app-pod
       labels:
